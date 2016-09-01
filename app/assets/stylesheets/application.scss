@@ -31,20 +31,13 @@ body {
   padding: 20px 40px 40px 40px;
 }
 
-.nav {
-  padding: 20px 0 20px 0;
-}
-
 // To provide padding when navbar is not present
 .empty-nav {
   padding: 30px 0 30px 0;
 }
 
+// To center row content in the middle and pad
 .row-centered {
   text-align:center;
+  padding-top: 40px; 
 }
-
-// .col-centered {
-//   float: none;
-//   margin: 0 auto;
-// }
