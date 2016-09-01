@@ -1,6 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
     <title>SalesFollower</title>
     <%= csrf_meta_tags %>
 
@@ -9,12 +14,18 @@
   </head>
 
   <body>
-    
-    <!-- flash messages -->
-    <% flash.each do |name, msg| %>
-    <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
-    <% end %>
+    <div class="container">
+      <%= render "layouts/navbar" %>
+      <!-- flash messages -->
+      <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+      <% end %>
 
-    <%= yield %>
+      <div class="row row-centered">
+        <div class="white-container">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
