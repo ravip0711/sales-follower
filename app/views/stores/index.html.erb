@@ -1,0 +1,19 @@
+<h1>My Favorite Stores</h1>
+
+<div>
+  <% @user_stores.each do |store| %>
+    <ul>
+      <li><%= store.name %></li>
+    </ul>
+  <% end %>
+</div>
+
+<h3>Add More Using The Form Below</h3>
+
+<%= simple_form_for(@user, :url => user_stores_path, method: :post, html: { class: 'form-horizontal' }) do |f| %>
+  <%= f.association :stores, as: :check_boxes, include_hidden: false, label: false %>
+  <%= f.button :submit, "Update Favorite Stores", class: "btn btn-primary" %>
+<% end %>
+
+
+<%= link_to "Back", root_path, class: "btn btn-secondary" %>

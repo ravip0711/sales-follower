@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :user_stores
-  has_many :stores, through: :user_stores        
+  has_many :stores, through: :user_stores     
 end
