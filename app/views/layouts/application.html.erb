@@ -16,11 +16,8 @@
   <body>
     <div class="container">
       <%= render "layouts/navbar" %>
-      <!-- flash messages -->
-      <% flash.each do |name, msg| %>
-      <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
-      <% end %>
-
+      <%= render "layouts/messages" %>
+      
       <div class="row row-centered">
         <div class="white-container">
           <%= yield %>
