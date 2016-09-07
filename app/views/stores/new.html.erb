@@ -1,6 +1,0 @@
-<h1>Add Favorite Stores</h1>
-
-<%= simple_form_for(@user, html: { class: 'form-horizontal' }) do |f| %>
-  <%= f.association :stores, as: :check_boxes %>
-  <%= f.button :submit %>
-<% end %>
