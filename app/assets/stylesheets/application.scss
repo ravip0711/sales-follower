@@ -17,7 +17,7 @@
 /* Background Picture */
 
 body {
-  background: url("mallofberlin.jpg") no-repeat center center fixed;
+  background: image-url("mallofberlin.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -40,6 +40,10 @@ body {
 .row-centered {
   text-align:center;
   padding-top: 40px; 
+}
+
+ul {
+  padding-left: 0px;
 }
 
 li {

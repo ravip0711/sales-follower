@@ -10,6 +10,7 @@ class StoresController < ApplicationController
     @user.store_ids = params[:user][:store_ids]
     @user.save
     
+    flash[:success] = "Favorite stores successfully updated."
     redirect_to user_stores_path(@user)
   end
 end

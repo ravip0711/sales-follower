@@ -8,7 +8,7 @@
   <% end %>
 </div>
 
-<h3>Add More Using The Form Below</h3>
+<h3>Add More Favorite Stores Below</h3>
 
 <%= simple_form_for(@user, :url => user_stores_path, method: :post, html: { class: 'form-horizontal' }) do |f| %>
   <%= f.association :stores, as: :check_boxes, include_hidden: false, label: false %>
