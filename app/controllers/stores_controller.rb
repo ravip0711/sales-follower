@@ -8,9 +8,13 @@ class StoresController < ApplicationController
   def create
     @user = current_user
     @user.store_ids = params[:user][:store_ids]
-    @user.save
-    
-    flash[:success] = "Favorite stores successfully updated."
-    redirect_to user_stores_path(@user)
+
+    if @user.save
+      flash[:success] = "Favorite stores successfully updated."
+      redirect_to user_stores_path(@user)
+    else
+      flash[:error] = "Error: Could not be updated."
+      render :index
+    end
   end
 end

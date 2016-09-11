@@ -31,11 +31,6 @@ body {
   padding: 20px 40px 40px 40px;
 }
 
-// To provide padding when navbar is not present
-.empty-nav {
-  padding: 30px 0 30px 0;
-}
-
 // To center row content in the middle and pad
 .row-centered {
   text-align:center;
@@ -50,6 +45,7 @@ li {
   list-style-type: none;
 }
 
+// Flash messages
 .alert {
   text-align: center;
   padding: 10px;
