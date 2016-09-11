@@ -3,11 +3,12 @@
 <div>
   <% @user_stores.each do |store| %>
     <ul class="list-group">
-      <li class="list-group-item"><%= store.name %></li>
+      <li class="list-group-item"><%= link_to "#{store.name}", store_deals_path(store) %></li>
     </ul>
   <% end %>
 </div>
 
+<hr>
 <h3>Add More Favorite Stores Below</h3>
 
 <%= simple_form_for(@user, :url => user_stores_path, method: :post, html: { class: 'form-horizontal' }) do |f| %>

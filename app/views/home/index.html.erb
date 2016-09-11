@@ -1,3 +1,32 @@
 <h1>Dashboard</h1>
+<hr>
+<div class="row col-md-12">
+  <div class="col-md-6">
+    <h2>Current Deals</h2>
+    <% @user_stores.each do |store| %>
+      <% store.deals.each do |deal| %>
+        <ul>
+          <li>
+            <%= link_to store_deals_path(store) do %>
+              <h3><%= store.name %>:</h3>
+              <h4><%= deal.title %></h4>
+            <% end %>
+          </li>
+        </ul>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-md-6">
+    <h2>Favorite Stores</h2>
+      <% @user_stores.each do |store| %>
+        <ul>
+          <li>
+            <h3><%= store.name %></h3>
+          </li>
+        </ul>
+      <% end %>
+  </div>
+</div>
 
-<%= link_to "My Favorite Stores", user_stores_path(current_user), class: "btn btn-primary" %>
+
+<%= link_to "Add More Favorite Stores", user_stores_path(current_user), class: "btn btn-primary" %>
