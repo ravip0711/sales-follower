@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  get 'deals/index'
+  
+  get 'admins/dashboard'
 
+  devise_for :admins
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'home#index'
+  get 'admin', to: 'admins#dashboard'
+  get 'deals/index'
+
 
   resources :users do
     resources :stores

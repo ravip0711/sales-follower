@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
   def index
-    if user_signed_in?
+    if admin_signed_in?
+      redirect_to admin_path
+    elsif user_signed_in?
       @user_stores = current_user.stores
       render :index
     else

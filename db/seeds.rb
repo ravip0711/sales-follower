@@ -13,3 +13,7 @@ Store.create(name: "Express")
 Store.create(name: "Guess")
 Store.create(name: "H&M")
 Store.create(name: "Forever 21")
+
+# Already in the database
+# User.create(email: "example@example.com", password: "example")
+# Admin.create(email: "example2@example.com", password: "abc123")
