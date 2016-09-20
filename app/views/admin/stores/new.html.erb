@@ -1,0 +1,18 @@
+<h1>Admin Add New Store</h1>
+
+<% @stores.each do |store| %>
+  <ul>
+    <li>
+      <%= store.name %>
+      <%= link_to "x", admin_store_path(store.id), method: :delete %>
+    </li>
+  </ul>
+<% end %>
+
+<hr>
+
+<%= simple_form_for [:admin, @store] do |f| %>
+  <%= f.input :name %>
+  <%= f.button :submit %>
+<% end %>
+
