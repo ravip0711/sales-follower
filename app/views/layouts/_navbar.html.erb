@@ -13,3 +13,19 @@
     </ul>
   </nav>
 <% end %>
+
+<% if admin_signed_in? %>
+  <nav class="navbar navbar-light bg-faded">
+    <ul class="nav navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="<%= admin_path %>">Dashboard</a>
+      </li>
+      <li class="nav-item pull-md-right">
+        <a><%= link_to('Logout', destroy_admin_session_path, :method => :delete, class: "nav-link") %></a>
+      </li>
+      <li class="nav-item pull-md-right">
+        <a><%= link_to('My Account', edit_admin_registration_path, class: "nav-link") %></a>
+      </li>
+    </ul>
+  </nav>
+<% end %>

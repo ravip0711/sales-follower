@@ -1,10 +1,10 @@
-<h1>Admin Add New Store</h1>
+<h1>Add New Store</h1>
 
 <% @stores.each do |store| %>
   <ul>
     <li>
       <%= store.name %>
-      <%= link_to "x", admin_store_path(store.id), method: :delete %>
+      <%= link_to "x", admin_store_path(store.id), method: :delete, data: { confirm: "Are you sure you want to delete the store: #{store.name}?" } %>
     </li>
   </ul>
 <% end %>
@@ -12,7 +12,9 @@
 <hr>
 
 <%= simple_form_for [:admin, @store] do |f| %>
-  <%= f.input :name %>
-  <%= f.button :submit %>
+  <%= f.input :name, label: "New Store Name" %>
+  <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
+
+<%= link_to "Dashboard", admin_path, class: "btn btn-secondary" %>
 
