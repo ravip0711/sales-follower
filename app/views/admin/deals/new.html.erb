@@ -1,0 +1,23 @@
+<h1>Add New Deals</h1>
+
+<% @deals.each do |deal| %>
+  <ul>
+    <li>
+      <%= deal.store.name %>:
+      <%= deal.title %>
+      <%= link_to "x", admin_deal_path(deal.id), method: :delete, data: { confirm: "Are you sure you want to delete the deal: #{deal.title}?" } %>
+    </li>
+  </ul>
+<% end %>
+
+<hr>
+
+<%= simple_form_for [:admin, @deal] do |f| %>
+  <%= f.input :store_id, collection: @stores %>
+  <%= f.input :title, label: "Title" %>
+  <%= f.input :description, label: "Description" %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "Dashboard", admin_path, class: "btn btn-secondary" %>
+
