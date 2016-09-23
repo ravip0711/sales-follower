@@ -39,6 +39,9 @@ gem 'simple_form'
 # Using Bootstrap for CSS
 gem 'bootstrap', '~> 4.0.0.alpha3.1'
 
+# Capybara for testing
+gem 'capybara'
+
 # Tooltips and popovers depend on tether for positioning in boostrap
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
