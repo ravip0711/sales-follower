@@ -33,6 +33,9 @@ gem 'jbuilder', '~> 2.5'
 # Using Devise for authentication
 gem 'devise'
 
+# Use Figaro for local ENV file
+gem "figaro"
+
 # Using Simple Forms
 gem 'simple_form'
 
