@@ -3,7 +3,10 @@
 <div>
   <% @user_stores.each do |store| %>
     <ul class="list-group">
-      <li class="list-group-item"><%= link_to "#{store.name}", store_deals_path(store) %></li>
+      <li class="list-group-item">
+        <%= link_to "#{store.name}", store_deals_path(store) %>
+        <%= link_to "X", user_store_path(current_user, store.id), method: :delete %>
+      </li>
     </ul>
   <% end %>
 </div>

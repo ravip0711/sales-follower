@@ -1,4 +1,6 @@
 class StoresController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @user = current_user
     @user_stores = current_user.stores
@@ -15,6 +17,15 @@ class StoresController < ApplicationController
     else
       flash[:error] = "Error: Could not be updated."
       render :index
+    end
+  end
+
+  private
+
+  def require_login
+    unless user_signed_in?
+      flash[:error] = "You must be Logged in."
+      redirect_to root_path
     end
   end
 end
