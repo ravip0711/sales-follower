@@ -23,7 +23,7 @@ class HomeController < ApplicationController
 
         if sale_products_array.empty?
           @ad_available = false
-          # show a default picture or generic ad
+          # show a default picture or generic ad for any brands thats don't have a sale product.
         else
           @ad_available = true
           ad_product = sale_products_array.sample
