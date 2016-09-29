@@ -9,7 +9,12 @@ class StoresController < ApplicationController
 
   def create
     @user = current_user
-    @user.store_ids = params[:user][:store_ids]
+
+    if params[:user] == nil
+      @user.store_ids = nil
+    else
+      @user.store_ids = params[:user][:store_ids]
+    end
 
     if @user.save
       flash[:success] = "Favorite stores successfully updated."
@@ -17,6 +22,15 @@ class StoresController < ApplicationController
     else
       flash[:error] = "Error: Could not be updated."
       render :index
+    end
+  end
+
+  def destroy
+    @user = current_user
+    store = @user.stores.find(params[:id])
+    if @user.stores.delete(store)
+      flash[:success] = "#{store.name} removed from your favorite list."
+      redirect_to user_stores_path
     end
   end
 

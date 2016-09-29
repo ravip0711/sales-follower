@@ -42,8 +42,15 @@ gem 'simple_form'
 # Using Bootstrap for CSS
 gem 'bootstrap', '~> 4.0.0.alpha3.1'
 
+# Using Shopsense API for ads
+gem 'shopsense-ruby'
+
+
 # Capybara for testing
 gem 'capybara'
+
+# Pry to debug
+gem 'pry'
 
 # Tooltips and popovers depend on tether for positioning in boostrap
 source 'https://rails-assets.org' do

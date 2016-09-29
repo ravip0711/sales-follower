@@ -26,7 +26,19 @@
         </ul>
       <% end %>
   </div>
+<%= link_to "Add More Favorite Stores", user_stores_path(current_user), class: "btn btn-primary" %>
 </div>
 
+<% if @ad_available == true %>
+  <div class="row col-md-12 advertisement">
+  <h2>Item on Sale Right Now!</h2>
+    <%= link_to @ad_product_url do %>
+      <%= image_tag "#{@ad_image_link}" %>
+      <h5><%= @ad_product_name %></h5>
+      <h5>Original Price:$<%= @ad_product_price %><h5>
+      <h4>Sale Price:$<%= @ad_product_sale_price %><h4>
+    <% end %>
+  </div>
+<% end %>
 
-<%= link_to "Add More Favorite Stores", user_stores_path(current_user), class: "btn btn-primary" %>
+
