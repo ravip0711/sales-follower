@@ -56,3 +56,23 @@ li {
 .advertisement {
   padding-top: 40px;
 }
+
+// list box that will scroll
+.scroll-list-box {
+  height: 200px;
+  overflow: auto;
+}
+.scroll-list-box::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+.scroll-list-box::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0,0,0,.5);
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+// Padding to space the checkboxes
+.checkbox {
+  padding-right: 50px;
+}

@@ -12,12 +12,14 @@
 </div>
 
 <hr>
-<h3>Add More Favorite Stores Below</h3>
-
-<%= simple_form_for(@user, :url => user_stores_path, method: :post, html: { class: 'form-horizontal' }) do |f| %>
-  <%= f.association :stores, as: :check_boxes, include_hidden: false, label: false %>
-  <%= f.button :submit, "Update Favorite Stores", class: "btn btn-primary" %>
-<% end %>
-
+<ul class="row list-group">
+  <h3>Add More Favorite Stores Below</h3>
+  <%= simple_form_for(@user, :url => user_stores_path, method: :post, html: { class: 'form-horizontal control-group' }) do |f| %>
+    <li class="list-group-item col-md-12">
+      <%= f.association :stores, as: :check_boxes, include_hidden: false, label: false %>
+    </li>
+    <%= f.button :submit, "Update Favorite Stores", class: "btn btn-primary" %>
+  <% end %>
+</ul>
 
 <%= link_to "Back", root_path, class: "btn btn-secondary" %>
