@@ -9,15 +9,18 @@ class HomeController < ApplicationController
 
       # Start ShopSense API for ad
       unless @user_stores.empty?
-        store_ad = @user_stores.sample.name
-
-        client = Shopsense::API.new({'partner_id' => 'uid7329-35979177-13'})
-        response = client.search(store_ad)
-        raw_products = JSON.parse(response)["products"]
         sale_products_array = []
-        raw_products.each do |product|
-          if !product["salePrice"].nil? && product["salePrice"] < product["price"]
-            sale_products_array << product
+
+        while sale_products_array.empty?
+          store_ad = @user_stores.sample.name
+
+          client = Shopsense::API.new({'partner_id' => 'uid7329-35979177-13'})
+          response = client.search(store_ad)
+          raw_products = JSON.parse(response)["products"]
+          raw_products.each do |product|
+            if !product["salePrice"].nil? && product["salePrice"] < product["price"]
+              sale_products_array << product
+            end
           end
         end
 

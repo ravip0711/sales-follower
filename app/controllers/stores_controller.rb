@@ -25,14 +25,15 @@ class StoresController < ApplicationController
     end
   end
 
-  def destroy
-    @user = current_user
-    store = @user.stores.find(params[:id])
-    if @user.stores.delete(store)
-      flash[:success] = "#{store.name} removed from your favorite list."
-      redirect_to user_stores_path
-    end
-  end
+  # Not using this anymore at the moment
+  # def destroy
+  #   @user = current_user
+  #   store = @user.stores.find(params[:id])
+  #   if @user.stores.delete(store)
+  #     flash[:success] = "#{store.name} removed from your favorite list."
+  #     redirect_to user_stores_path
+  #   end
+  # end
 
   private
 

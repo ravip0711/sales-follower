@@ -1,22 +1,10 @@
-<h1>My Favorite Stores</h1>
+<h1>My Favorite Stores List</h1>
 
-<div>
-  <% @user_stores.each do |store| %>
-    <ul class="list-group">
-      <li class="list-group-item">
-        <%= link_to "#{store.name}", store_deals_path(store) %>
-        <%= link_to "X", user_store_path(current_user, store.id), method: :delete %>
-      </li>
-    </ul>
-  <% end %>
-</div>
-
-<hr>
 <ul class="row list-group">
-  <h3>Add More Favorite Stores Below</h3>
+  <h3>Check the boxes of you favorite stores</h3>
   <%= simple_form_for(@user, :url => user_stores_path, method: :post, html: { class: 'form-horizontal control-group' }) do |f| %>
     <li class="list-group-item col-md-12">
-      <%= f.association :stores, as: :check_boxes, include_hidden: false, label: false %>
+      <%= f.association :stores, collection: Store.order('name ASC'), as: :check_boxes, include_hidden: false, label: false %>
     </li>
     <%= f.button :submit, "Update Favorite Stores", class: "btn btn-primary" %>
   <% end %>
