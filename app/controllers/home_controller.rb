@@ -3,7 +3,13 @@ require 'shopsense'
 class HomeController < ApplicationController
   def index
     if admin_signed_in?
-      redirect_to admin_path
+      if current_admin.admin?
+        redirect_to admin_path
+      else
+        reset_session
+        redirect_to new_admin_session_path
+        flash[:alert] = "Error: Admin does not have set permissions by webmaster, please contact webmaster."
+      end
     elsif user_signed_in?
       @user_stores = current_user.stores
 
